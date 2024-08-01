@@ -1,14 +1,15 @@
 import axios from 'axios'
-export const fetchProducts = async () => {
-    try {
-      const url = await axios.get('https://dummyjson.com/products')
-      const result = await url.data
-      const {products} = result
-      console.log(products)
-      console.log(products.length)
-      console.log(Array.isArray(products))
-      return products
-    } catch(error) {
-        console.log(error)
-    }
+import { FetchProductData } from '../Slice/ProductSlice'
+export const fetchProducts = () => dispatch => {
+    fetch("https://dummyjson.com/products", {
+        headers: {
+             "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    })
+    .then(res => res.json())
+    .then(data => dispatch({
+        type: FetchProductData,
+        payload: data
+    }))
 }
