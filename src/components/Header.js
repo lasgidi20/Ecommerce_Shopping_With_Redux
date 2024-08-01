@@ -1,6 +1,10 @@
 import React from 'react'
 import { Navbar } from 'react-bootstrap'
 import { FaCartShopping } from "react-icons/fa6";
+import Container from 'react-bootstrap/Container';
+import Dropdown from 'react-bootstrap/Dropdown';
+import Form from 'react-bootstrap/Form';
+
 const Header = () => {
   return (
     <Navbar bg='dark' variant='dark' style={{height: 80}}>
