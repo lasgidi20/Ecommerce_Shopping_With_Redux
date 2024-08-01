@@ -39,7 +39,7 @@ const Filter = () => {
           />
         </span>
         <span>
-            <label style={{paddingRight: "11px"}}> <Rating rate={rate} style={{cursor: "pointer"}} onClick={() => setRate()}/></label>
+            <label style={{paddingRight: "11px"}}> <Rating rate={rate} style={{cursor: "pointer"}} onClick={(i) => setRate(i)}/></label>
         </span>
         <Button variant="light">Clear Filters</Button>
     </div>
