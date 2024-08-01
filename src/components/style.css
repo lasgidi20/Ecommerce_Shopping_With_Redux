@@ -1,0 +1,28 @@
+.home {
+    display: flex;
+}
+
+.prod-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 78%;
+    padding: 20px;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    color: white;
+    background: black;
+}
+
+
+.filters > span {
+   padding-bottom: 20px;
+}
+
+.products {
+    width: 30%;
+    margin: 10px;
+}
