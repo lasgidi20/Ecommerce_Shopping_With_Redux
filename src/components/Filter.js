@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Button } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
+import Rating from './Rating';
 const Filter = () => {
+  const [rate, setRate] = useState(3)
   return (
     <div className='filters'>
        <span className='title'>Filter By Category</span>
@@ -37,7 +39,7 @@ const Filter = () => {
           />
         </span>
         <span>
-            <label style={{paddingRight: "11px"}}>Rating:</label>
+            <label style={{paddingRight: "11px"}}> <Rating rate={rate} style={{cursor: "pointer"}} onClick={() => setRate()}/></label>
         </span>
         <Button variant="light">Clear Filters</Button>
     </div>
