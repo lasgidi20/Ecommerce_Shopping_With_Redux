@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { fetchProducts } from '../APIs/fetchProducts'
+
 const initialState = {
   products: [],
   cart: []
@@ -15,10 +16,6 @@ export const productSlice = createSlice({
     },
 
     AddToCart: (state, action) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
       return {...state, cart: [...state.cart, {...action.payload, qty: 1}]}
     },
     RemoveFromCart: (state, action) => {
