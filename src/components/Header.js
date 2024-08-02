@@ -4,8 +4,12 @@ import { FaCartShopping } from "react-icons/fa6";
 import Container from 'react-bootstrap/Container';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
+import { useSelector, useDispatch } from 'react-redux'
 
 const Header = () => {
+    const items = useSelector(state => state.prod_cart_management.cart)
+    console.log('header compo')
+    console.log(items)
   return (
     <Navbar bg='dark' variant='dark' style={{height: 80}}>
     <Container>
@@ -18,7 +22,7 @@ const Header = () => {
       />
     <Dropdown align="end">
       <Dropdown.Toggle variant="success">
-        <FaCartShopping /> <span style={{paddingRight: "6px"}}>{0}</span>
+        <FaCartShopping /> <span style={{paddingRight: "6px"}}>{items.length}</span>
       </Dropdown.Toggle>
 
       <Dropdown.Menu style={{width: "370px"}}>
