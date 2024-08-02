@@ -44,7 +44,7 @@ const Cart = () => {
         <div className='filters'>
            <span> Subtotal: {items.length} Items In Cart</span>
            <span style={{fontSize: "30px", fontWeight: 500}}>Total: £{total}</span>
-           <Button>Pay</Button>
+           {total > 0 ? <Button>Pay</Button> : '' }
         </div>
     </div>
   )
