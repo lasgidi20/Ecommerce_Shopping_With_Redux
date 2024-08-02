@@ -1,7 +1,10 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useDispatch } from 'react-redux';
+import { AddToCart, RemoveFromCart } from '../Slice/ProductSlice';
 const SingleProduct = ({item}) => {
+  const dispatch = useDispatch()
   return (
     <div className='products'>
     <Card>
@@ -14,8 +17,14 @@ const SingleProduct = ({item}) => {
          <div>{item.shippingInformation}</div>
          <div>{item.stock}</div>
          <div>{item.rating}</div>
-         <Button>Add To Cart</Button>
-         <Button variant='danger'>Remove From Cart</Button>
+         <Button onClick={()=> dispatch({
+            type: AddToCart,
+            payload: item
+         })}>Add To Cart</Button>
+         <Button variant='danger' onClick={() => dispatch({
+            type: RemoveFromCart,
+            payload: item
+         })}>Remove From Cart</Button>
       </Card.Body>
     </Card>
     </div>
