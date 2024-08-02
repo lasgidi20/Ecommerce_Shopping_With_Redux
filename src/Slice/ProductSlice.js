@@ -23,16 +23,16 @@ export const productSlice = createSlice({
     },
 
     IncreaseQty: (state, action) => {
-        return {...state, cart: state.cart.map((item) => item.id === action.payload.id ? item.qty=action.payload.qty : item)}
+        state.cart = state.cart.filter((item) => item.id === action.payload.id ? item.qty = action.payload.qty : item.qty)
     },
     
     ClearCart: (state) => {
-      return {...state, cart: [] }
+      state.cart = []
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { AddToCart, RemoveFromCart, ClearCart, FetchProductData } = productSlice.actions
+export const { AddToCart, RemoveFromCart, ClearCart, FetchProductData, IncreaseQty } = productSlice.actions
 
 export default productSlice.reducer
