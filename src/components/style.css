@@ -1,6 +1,9 @@
 .home {
     display: flex;
 }
+a {
+    text-decoration: none !important;
+}
 
 .prod-container {
     display: flex;
