@@ -13,7 +13,7 @@ const Home = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchProducts())
-    }, [])
+    },[])
   return (
     <div className='home'>
         <Filter />
