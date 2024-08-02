@@ -21,6 +21,10 @@ export const productSlice = createSlice({
     RemoveFromCart: (state, action) => {
       return {...state, cart: state.cart.filter((item) => item.id !== action.payload.id)}
     },
+
+    IncreaseQty: (state, action) => {
+        return {...state, cart: state.cart.map((item) => item.id === action.payload.id ? item.qty=action.payload.qty : item)}
+    },
     
     ClearCart: (state) => {
       return {...state, cart: [] }
