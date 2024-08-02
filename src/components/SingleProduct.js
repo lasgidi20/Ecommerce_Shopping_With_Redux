@@ -13,7 +13,7 @@ const SingleProduct = ({item}) => {
       <Card.Img variant="top" src={item.images[0]} alt={item.title} />
       <Card.Body style={{paddingBottom: "20px"}}>
         <Card.Title>{item.title}</Card.Title>
-        <span> {item.price}</span>
+        <span> £{item.price}</span>
          <div>{item.availabilityStatus}</div>
          <div>{item.warrantyInformation}</div>
          <div>{item.shippingInformation}</div>
