@@ -8,10 +8,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { AiFillDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import './style.css';
+import { RemoveFromCart } from '../Slice/ProductSlice';
 
 const Header = () => {
     const items = useSelector(state => state.prod_cart_management.cart)
     console.log(items)
+    const dispatch = useDispatch()
   return (
     <Navbar bg='dark' variant='dark' style={{height: 80}}>
     <Container>
@@ -35,12 +37,17 @@ const Header = () => {
             />
 
             <div className='cart-detail'>
-                <span>{item.title}</span>
-                <span>{item.price}</span>
+                <span style={{paddingRight: "7px"}}>{item.title}</span>
+                <span>£{item.price}</span>
             </div>
 
             <AiFillDelete
             fontSize="20px"
+            onClick={() => dispatch({
+                type: RemoveFromCart,
+                payload: item
+            })}
+            style={{cursor: "pointer"}}
             />
 
          </span>)) : (<span style={{padding: "11px"}}>Cart is Empty</span>)}
