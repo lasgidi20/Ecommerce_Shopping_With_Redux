@@ -1,9 +1,11 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { AddToCart, RemoveFromCart } from '../Slice/ProductSlice';
 const SingleProduct = ({item}) => {
+  const cart_items = useSelector(state => state.prod_cart_management.cart)
+  console.log(cart_items)
   const dispatch = useDispatch()
   return (
     <div className='products'>
@@ -17,14 +19,13 @@ const SingleProduct = ({item}) => {
          <div>{item.shippingInformation}</div>
          <div>{item.stock}</div>
          <div>{item.rating}</div>
-         <Button onClick={()=> dispatch({
-            type: AddToCart,
-            payload: item
-         })}>Add To Cart</Button>
-         <Button variant='danger' onClick={() => dispatch({
+         {cart_items.some((prod) => prod.id === item.id) ? (<Button variant='danger' onClick={() => dispatch({
             type: RemoveFromCart,
             payload: item
-         })}>Remove From Cart</Button>
+         })}>Remove From Cart</Button>) : (  <Button onClick={()=> dispatch({
+            type: AddToCart,
+            payload: item
+         })}>Add To Cart</Button>)}
       </Card.Body>
     </Card>
     </div>
