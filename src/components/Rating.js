@@ -8,7 +8,6 @@ const Rating = ({rate, style, onClick}) => {
        <span key={i} onClick={()=>onClick(i)} style={style}>
           {rate > i ? (<AiFillStar />) : (<AiOutlineStar />)}
        </span>
-
     ))}
     </>
   )
