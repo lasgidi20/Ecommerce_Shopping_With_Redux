@@ -51,7 +51,7 @@ const Header = () => {
             />
 
          </span>)) : (<span style={{padding: "11px"}}>Cart is Empty</span>)}
-         <Link to='/'>
+         <Link to='/cart'>
          <Button style={{width: "95%", marginLeft: "10px", marginTop: "10px"}}>Cart Page</Button>
          </Link>
       </Dropdown.Menu>
