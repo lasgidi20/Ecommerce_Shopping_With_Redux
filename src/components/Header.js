@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from 'react-redux'
 
 const Header = () => {
     const items = useSelector(state => state.prod_cart_management.cart)
-    console.log('header compo')
     console.log(items)
   return (
     <Navbar bg='dark' variant='dark' style={{height: 80}}>
