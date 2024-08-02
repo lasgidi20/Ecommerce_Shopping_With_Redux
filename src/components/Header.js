@@ -17,7 +17,9 @@ const Header = () => {
   return (
     <Navbar bg='dark' variant='dark' style={{height: 80}}>
     <Container>
+      <Link to='/'>
       <Navbar.Brand href="#home">Shopping Cart</Navbar.Brand>
+      </Link>
       <Form.Control
         type="text"
         placeholder="Search an Item"
