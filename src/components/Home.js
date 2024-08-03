@@ -10,6 +10,7 @@ const Home = () => {
     let items = useSelector(state => state.product_filter.products)
     let shipping_information =  useSelector(state => state.product_filter.shipping)
     let warranty_information =  useSelector(state => state.product_filter.warranty)
+    let search_products =  useSelector(state => state.product_filter.searchQuery)
     console.log(shipping_information)
 
     const dispatch = useDispatch()
@@ -21,6 +22,8 @@ const Home = () => {
       items = shipping_information
     } else if(warranty_information){
       items = warranty_information
+    } else if(search_products) {
+      items = items.filter((item)=> item.title.toLowerCase().includes(search_products))
     }
   return (
     <div className='home'>
