@@ -9,6 +9,7 @@ import { AiFillDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import './style.css';
 import { RemoveFromCart } from '../Slice/ProductSlice';
+import { SearchQuery } from '../Slice/ProductFilterSlice';
 
 const Header = () => {
     const items = useSelector(state => state.prod_cart_management.cart)
@@ -25,6 +26,10 @@ const Header = () => {
         placeholder="Search an Item"
         style={{width: 500}}
         className="m-auto"
+        onChange={(e) => dispatch({
+          type: SearchQuery,
+          payload: e.target.value
+        })}
       />
     <Dropdown align="end">
       <Dropdown.Toggle variant="success">
