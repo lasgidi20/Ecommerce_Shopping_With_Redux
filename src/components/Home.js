@@ -5,20 +5,20 @@ import { fetchProducts } from '../APIs/fetchProducts';
 import SingleProduct from './SingleProduct';
 import Filter from './Filter';
 import './style.css'
+import { fetchItems } from '../APIs/fetchProducts';
 
 const Home = () => {
-    const items = useSelector(state => state.prod_cart_management.products.products)
-    console.log(items)
-    console.log(Array.isArray(items))
+   console.log(fetchItems())
+    const items = useSelector(state => state.prod_cart_management.products)
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(fetchProducts())
+      dispatch(fetchProducts())
     },[])
   return (
     <div className='home'>
         <Filter />
        <div className='prod-container'>
-         {items.length > 0 ? (items.map((item) => {
+         {items && items.length > 0 ? (items.map((item) => {
           return  <SingleProduct item={item} />
          })) : ("no products")}
        </div>
