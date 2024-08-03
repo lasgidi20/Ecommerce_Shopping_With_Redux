@@ -28,7 +28,7 @@ const Header = () => {
       />
     <Dropdown align="end">
       <Dropdown.Toggle variant="success">
-        <FaCartShopping /> <span style={{paddingRight: "6px"}}>{items.length}</span>
+        <FaCartShopping /> <span style={{paddingRight: "6px"}}>{items.length || 0}</span>
       </Dropdown.Toggle>
 
       <Dropdown.Menu style={{width: "370px"}}>
