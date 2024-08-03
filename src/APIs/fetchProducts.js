@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { FetchProductData } from '../Slice/ProductFilterSlice'
 export const fetchProducts = () => dispatch => {
     console.log('dispatching')
