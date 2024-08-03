@@ -11,6 +11,7 @@ const Home = () => {
     let shipping_information =  useSelector(state => state.product_filter.shipping)
     let warranty_information =  useSelector(state => state.product_filter.warranty)
     let search_products =  useSelector(state => state.product_filter.searchQuery)
+    let set_ratings =  useSelector(state => state.product_filter.byRatings)
     console.log(shipping_information)
 
     const dispatch = useDispatch()
@@ -24,6 +25,8 @@ const Home = () => {
       items = warranty_information
     } else if(search_products) {
       items = items.filter((item)=> item.title.toLowerCase().includes(search_products))
+    } else if (set_ratings) {
+      items = items.filter((item) => item.rating > set_ratings)
     }
   return (
     <div className='home'>
