@@ -12,9 +12,9 @@ const Home = () => {
     let warranty_information =  useSelector(state => state.product_filter.warranty)
     let search_products =  useSelector(state => state.product_filter.searchQuery)
     let set_ratings =  useSelector(state => state.product_filter.byRatings)
-    console.log(shipping_information)
 
     const dispatch = useDispatch()
+
     useEffect(() => {
       dispatch(fetchProducts())
     },[])
