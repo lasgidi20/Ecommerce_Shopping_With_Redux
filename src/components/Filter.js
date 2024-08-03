@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import { Button } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
+import { useSelector, useDispatch } from 'react-redux'
 import Rating from './Rating';
-import {useDispatch} from 'react-redux'
-import {SortPriceAscending, SortPriceDescending, ShipOvernight, Ship2week, Ship1_2days, MonthsWarranty, YearWarranty, ClearFilter, Ship1_Month} from '../Slice/ProductFilterSlice'
+import {SortPriceAscending, SortPriceDescending, ShipOvernight, Ship2week, Ship1_2days, MonthsWarranty, YearWarranty, ClearFilter, Ship1_Month, ByRatings} from '../Slice/ProductFilterSlice'
 const Filter = () => {
-  const [rate, setRate] = useState(3)
+  const set_ratings = useSelector(state => state.product_filter.byRatings)
   const dispatch = useDispatch();
   return (
     <div className='filters'>
@@ -102,7 +102,10 @@ const Filter = () => {
           />
         </span>
         <span>
-            <label style={{paddingRight: "11px"}}> Sort By Rating: <Rating rate={rate} style={{cursor: "pointer"}} onClick={(i) => setRate(i)}/></label>
+            <label style={{paddingRight: "11px"}}> Sort By Rating: <Rating rate={set_ratings} style={{cursor: "pointer"}} onClick={(i) => dispatch({
+              type: ByRatings,
+              payload: i + 1
+            })}/></label>
         </span>
         <Button variant="light" onClick={() => dispatch({
            type: ClearFilter
