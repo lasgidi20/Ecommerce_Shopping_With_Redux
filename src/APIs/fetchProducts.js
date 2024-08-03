@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FetchProductData } from '../Slice/ProductSlice'
+import { FetchProductData } from '../Slice/ProductFilterSlice'
 export const fetchProducts = () => dispatch => {
     console.log('dispatching')
     fetch("https://dummyjson.com/products", {
