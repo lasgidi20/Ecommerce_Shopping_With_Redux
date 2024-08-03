@@ -5,7 +5,8 @@ const initialState = {
   products: [],
   sort:'',
   shipping: '',
-  warranty: ''
+  warranty: '',
+  searchQuery: ''
 }
 
 export const productFilterSlice = createSlice({
@@ -43,15 +44,21 @@ export const productFilterSlice = createSlice({
     MonthsWarranty: (state) => {
        state.warranty = state.products.filter((item) => item.warrantyInformation === '1 month warranty' )
     },
+
     YearWarranty: (state) => {
        state.warranty = state.products.filter((item) => item.warrantyInformation === '1 year warranty' )
     },
+
+    SearchQuery: (state, action) => {
+      return {...state, searchQuery: action.payload}
+    },
+
     ClearFilter: (state) => {
        return {...state, sort: '', shipping: '', warranty: ''}
     },
   },
 })
 
-export const { FetchProductData, SortPriceAscending, SortPriceDescending, ShipOvernight, Ship1_2days, Ship2week, Ship1_Month, MonthsWarranty, YearWarranty, ClearFilter } = productFilterSlice.actions
+export const { FetchProductData, SortPriceAscending, SortPriceDescending, ShipOvernight, Ship1_2days, Ship2week, Ship1_Month, MonthsWarranty, YearWarranty, ClearFilter, SearchQuery } = productFilterSlice.actions
 
 export default productFilterSlice.reducer
