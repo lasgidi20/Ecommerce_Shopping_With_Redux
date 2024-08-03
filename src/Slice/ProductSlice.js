@@ -1,20 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { fetchProducts } from '../APIs/fetchProducts'
+import { fetchItems } from '../APIs/fetchProducts'
+import { useSelector, useDispatch } from 'react-redux'
 
 const initialState = {
-  products: [],
-  cart: []
+  cart: [],
 }
 
 export const productSlice = createSlice({
   name: 'prod_cart_management',
   initialState,
   reducers: {
-    FetchProductData: (state, action) => {
-        console.log('fecthing')
-       return {...state, products: action.payload}
-    },
-
     AddToCart: (state, action) => {
       return {...state, cart: [...state.cart, {...action.payload, qty: 1}]}
     },
@@ -23,7 +19,7 @@ export const productSlice = createSlice({
     },
 
     IncreaseQty: (state, action) => {
-        state.cart = state.cart.filter((item) => item.id === action.payload.id ? item.qty = action.payload.qty : item.qty)
+      state.cart = state.cart.filter((item) => item.id === action.payload.id ? item.qty = action.payload.qty : item.qty)
     },
     
     ClearCart: (state) => {
@@ -32,6 +28,6 @@ export const productSlice = createSlice({
   },
 })
 
-export const { AddToCart, RemoveFromCart, ClearCart, FetchProductData, IncreaseQty } = productSlice.actions
+export const { AddToCart, RemoveFromCart, ClearCart, IncreaseQty} = productSlice.actions
 
 export default productSlice.reducer
