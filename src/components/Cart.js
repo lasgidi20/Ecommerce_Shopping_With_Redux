@@ -5,7 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import { Form } from 'react-bootstrap';
-import { ClearCart, IncreaseQty } from '../Slice/ProductSlice';
+import { ClearCart, IncreaseQty, RemoveFromCart } from '../Slice/ProductSlice';
+import { AiFillDelete } from 'react-icons/ai';
 const Cart = () => {
     const items = useSelector(state => state.prod_cart_management.cart)
     console.log(items)
@@ -36,6 +37,10 @@ const Cart = () => {
                       {[...Array(item.stock).keys()].map((x) => (
                       <option key={x + 1}>{x + 1}</option>
                       ))}</Form.Control></Col>
+                  <Col md={2}><AiFillDelete onClick={() => dispatch({
+                    type: RemoveFromCart,
+                    payload: item
+                  })}/></Col>
                 </Row>
                 </ListGroup.Item>
              </ListGroup>
